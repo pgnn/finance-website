@@ -1,3 +1,4 @@
 image: <+artifacts.primary.image>
 imageTag: <+pipeline.sequenceId>
-namespace: finance-website-<+codebase.branch>
+namespace: finance-website
+appName: finance-website-<+codebase.branch>
