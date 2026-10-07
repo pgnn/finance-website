@@ -1,25 +1,25 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: finance-website-broken
+  name: finance-website
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: car-website
-  namespace: finance-website-broken
+  name: car-website-broken
+  namespace: finance-website
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: car-website
+      app: car-website-broken
   template:
     metadata:
       labels:
-        app: car-website
+        app: car-website-broken
     spec:
       containers:
-        - name: car-website
+        - name: car-website-broken
           image: "{{ .Values.image }}"
           ports:
             - containerPort: 3000
@@ -30,11 +30,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: car-website
-  namespace: finance-website-broken
+  name: car-website-broken
+  namespace: finance-website
 spec:
   selector:
-    app: car-website
+    app: car-website-broken
   ports:
     - port: 80
       targetPort: 3000
