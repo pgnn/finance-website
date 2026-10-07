@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: finance-website
+  name: finance-website-broken
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: car-website
+  namespace: finance-website-broken
 spec:
   replicas: 1
   selector:
@@ -30,10 +31,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: car-website
+  namespace: finance-website-broken
 spec:
   selector:
     app: car-website
   ports:
     - port: 80
       targetPort: 3000
+      nodePort: 31108
   type: NodePort
