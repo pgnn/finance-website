@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: finance-website
+  name: {{ .Values.namespace }}
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: finance-website
-  namespace: finance-website
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: 1
   selector:
@@ -31,12 +31,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: finance-website
-  namespace: finance-website
+  namespace: {{ .Values.namespace }}
 spec:
   selector:
     app: finance-website
   ports:
     - port: 80
       targetPort: 3000
-      nodePort: 31107
   type: NodePort
