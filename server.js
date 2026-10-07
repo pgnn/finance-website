@@ -24,9 +24,9 @@ try {
 app.use(express.static(path.join(__dirname, 'public')));
 
 const cars = [
-  { name: 'Intranet App 1', badge: 'App 1', unique: 'Consolidated dashboards for cash, positions, and exposure', tagline: 'Real-time financial overview', image: '/images/suv.jpg' },
-  { name: 'Intranet App 2', badge: 'App 2', unique: 'Automated payment processing and transaction reconciliation', tagline: 'Fast, secure settlement flows', image: '/images/pickup.jpg' },
-  { name: 'Intranet App 3', badge: 'App 3', unique: 'Risk scoring, compliance checks, and regulatory reporting', tagline: 'Governance and control center', image: '/images/convertible.jpg', imgWidth: 900, imgHeight: 450 },
+  { name: 'Intranet App 1', badge: 'App 1', unique: 'Consolidated dashboards for cash, positions, and exposure', tagline: 'Real-time financial overview', image: '/images/1.jpg', imgWidth: 240, imgHeight: 150 },
+  { name: 'Intranet App 2', badge: 'App 2', unique: 'Automated payment processing and transaction reconciliation', tagline: 'Fast, secure settlement flows', image: '/images/2.jpg', imgWidth: 240, imgHeight: 150 },
+  { name: 'Intranet App 3', badge: 'App 3', unique: 'Risk scoring, compliance checks, and regulatory reporting', tagline: 'Governance and control center', image: '/images/3.jpg', imgWidth: 240, imgHeight: 150 },
 ];
 
 app.get('/', (req, res) => {
