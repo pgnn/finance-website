@@ -6,19 +6,20 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: car-website
+  name: finance-website
+  namespace: finance-website
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: car-website
+      app: finance-website
   template:
     metadata:
       labels:
-        app: car-website
+        app: finance-website
     spec:
       containers:
-        - name: car-website
+        - name: finance-website
           image: "{{ .Values.image }}"
           ports:
             - containerPort: 3000
@@ -29,11 +30,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: car-website
+  name: finance-website
+  namespace: finance-website
 spec:
   selector:
-    app: car-website
+    app: finance-website
   ports:
     - port: 80
       targetPort: 3000
+      nodePort: 31107
   type: NodePort
