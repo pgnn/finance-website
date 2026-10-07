@@ -24,9 +24,9 @@ try {
 app.use(express.static(path.join(__dirname, 'public')));
 
 const cars = [
-  { name: 'Intranet App 1', unique: 'Consolidated dashboards for cash, positions, and exposure', tagline: 'Real-time financial overview', image: '/images/suv.jpg' },
-  { name: 'Intranet App 2', unique: 'Automated payment processing and transaction reconciliation', tagline: 'Fast, secure settlement flows', image: '/images/pickup.jpg' },
-  { name: 'Intranet App 3', unique: 'Risk scoring, compliance checks, and regulatory reporting', tagline: 'Governance and control center', image: '/images/convertible.jpg', imgWidth: 900, imgHeight: 450 },
+  { name: 'Intranet App 1', badge: 'App 1', unique: 'Consolidated dashboards for cash, positions, and exposure', tagline: 'Real-time financial overview', image: '/images/suv.jpg' },
+  { name: 'Intranet App 2', badge: 'App 2', unique: 'Automated payment processing and transaction reconciliation', tagline: 'Fast, secure settlement flows', image: '/images/pickup.jpg' },
+  { name: 'Intranet App 3', badge: 'App 3', unique: 'Risk scoring, compliance checks, and regulatory reporting', tagline: 'Governance and control center', image: '/images/convertible.jpg', imgWidth: 900, imgHeight: 450 },
 ];
 
 app.get('/', (req, res) => {
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
     .map(
       (c) => `
       <div class="card">
-        <div class="badge">InnoCar</div>
+        <div class="badge">${c.badge}</div>
         ${c.image ? `<img src="${c.image}" width="${c.imgWidth || 300}" height="${c.imgHeight || 180}" alt="${c.name}">` : ''}
         <h2>${c.name}</h2>
         <p class="tagline">${c.tagline}</p>
@@ -284,7 +284,7 @@ app.get('/', (req, res) => {
           </div>
           <div id="map"></div>
         </div>
-        <footer>&copy; InnoCar Motors - demo build</footer>
+        <footer>&copy; InnoFinance Corp - demo build</footer>
         <script>
           async function loadTaxis() {
             try {
